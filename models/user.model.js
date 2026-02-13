@@ -21,3 +21,7 @@ const userSchema = new mongoose.Schema({
         default: "https://ik.imagekit.io/fpttn101t/avatar-default-user-profile-icon-social-media-vector-57234208.webp"
     }
 })
+
+const userModel=mongoose.model("user",userSchema)
+
+module.exports=userModel
