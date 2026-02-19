@@ -1,8 +1,8 @@
 const userModel = require("../models/user.model")
-const bcrypt=require("bcryptjs")
+const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 
-async function registerController(req, res){
+async function registerController(req, res) {
     const { username, email, password, bio, profileImage } = req.body
 
     const isUserExist = await userModel.findOne({ $or: [{ username }, { email }] })
@@ -13,7 +13,7 @@ async function registerController(req, res){
         })
     }
 
-    const hash = await bcrypt.hash(password,10)
+    const hash = await bcrypt.hash(password, 10)
 
     const user = await userModel.create({
         username,
@@ -42,7 +42,7 @@ async function registerController(req, res){
     })
 }
 
-async function loginController(req, res){
+async function loginController(req, res) {
     const { username, email, password } = req.body
 
     const user = await userModel.findOne({ $or: [{ username }, { email }] })
@@ -53,7 +53,7 @@ async function loginController(req, res){
         })
     }
 
-    const isPassworValid = await bcrypt.compare(password,user.password)
+    const isPassworValid = await bcrypt.compare(password, user.password)
 
     if (!isPassworValid) {
         return res.status(401).json({
@@ -66,15 +66,15 @@ async function loginController(req, res){
     }, process.env.JWT_SECRET,
         { expiresIn: "1d" })
 
-    res.cookie("token",token)
+    res.cookie("token", token)
 
     res.status(200).json({
-        message:"logged in succesfully"
+        message: "logged in succesfully"
     })
 
 }
 
-module.exports={
+module.exports = {
     registerController,
     loginController
 }
