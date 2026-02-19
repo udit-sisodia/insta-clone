@@ -18,7 +18,7 @@ async function createPostController(req, res) {
     }
 
    try{
-     const decoded = jwt.verify(token, process.env.JWT_SECRET)
+     var decoded = jwt.verify(token, process.env.JWT_SECRET)
    }catch(err){
     return res.status(401).json({
         message:"you are not authorized to create a post"
