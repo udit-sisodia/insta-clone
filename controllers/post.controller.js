@@ -1,7 +1,7 @@
 const postModel = require("../models/post.model")
 const ImageKit = require("@imagekit/nodejs")
 const { toFile } = require("@imagekit/nodejs")
-const jwt = require("jsonwebtoken")
+const followModel=require("../models/follow.model")
 
 
 const client = new ImageKit({
@@ -64,8 +64,47 @@ async function getPostDetailsController(req,res){
     })
 }
 
+async function followController(req,res){
+    const followerId=req.user.id
+    const followingId=req.params.id
+
+    if(followerId===followingId){
+        return res.status(400).json({
+            message:"you cant follow yourself"
+        })
+    }
+
+    const follows=await followModel.create({
+        follower:followerId,
+        followee:followingId
+    })
+
+    res.status(201).json({
+        message:"followed sucesffuly",
+        follows
+    })
+}
+
+async function unfollowController(req,res){
+    const followerId=req.user.id
+    const followingId=req.params.id
+  
+    if(followerId===followingId){
+        return res.status(400).json({
+            message:"you cant unfollow yourself"
+        })
+    }
+
+    await followModel.findOneAndDelete({follower:followerId, followee:followingId})
+
+    res.status(201).json({
+        message:"unfollowed succesfully",
+    })
+}
+
 module.exports = {
     createPostController,
     getAllPostsController,
-    getPostDetailsController
+    getPostDetailsController,
+    followController,unfollowController
 }

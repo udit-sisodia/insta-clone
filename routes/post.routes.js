@@ -13,6 +13,7 @@ postRouter.post("/", upload.single("image"),identifyUser, postController.createP
 
 /* 
 GET /api/posts   [Protected]
+-created this to get all posts of that user
 */
 
 postRouter.get("/", identifyUser,postController.getAllPostsController)
@@ -23,5 +24,19 @@ GET /api/posts/details/:postId
 */
 
 postRouter.get("/details/:postId",identifyUser,postController.getPostDetailsController)
+
+/* 
+POST /api/posts/follow/:id
+-created a api to follow a person
+*/
+
+postRouter.post("/follow/:id",identifyUser,postController.followController)
+
+/* 
+POST /api/posts/unfollow/:id
+-created a api to unfollow a person
+*/
+
+postRouter.post("/unfollow/:id",identifyUser,postController.unfollowController)
 
 module.exports = postRouter
