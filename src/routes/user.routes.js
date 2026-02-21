@@ -3,15 +3,15 @@ const userRouter=express.Router()
 const userController=require("../controllers/user.controller")
 const identifyUser=require("../middlewares/auth.middleware")
 /* 
-POST /api/posts/follow/:id
--created a api to follow a person
+@route POST /api/posts/follow/:id
+@desc this route is for following a user with the id that is passed in the url. the user that is making the request will be the follower and the user that is being followed will be the followee.
 */
 
 userRouter.post("/follow/:id",identifyUser,userController.followController)
 
 /* 
-POST /api/posts/unfollow/:id
--created a api to unfollow a person
+@route POST /api/posts/unfollow/:id
+@desc this route is for unfollowing a user with the id that is passed in the url. 
 */
 
 userRouter.post("/unfollow/:id",identifyUser,userController.unfollowController)
