@@ -17,4 +17,5 @@ userRouter.post("/follow/:id",identifyUser,userController.followController)
 userRouter.post("/unfollow/:id",identifyUser,userController.unfollowController)
 
 
+
 module.exports=userRouter
