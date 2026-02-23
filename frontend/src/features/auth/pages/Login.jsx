@@ -29,7 +29,7 @@ const Login = () => {
     return (
         <main>
             <div className="form-container">
-                <h1>Form</h1>
+                <h1>Login</h1>
                 <form onSubmit={handleSubmit}>
                     <input
                         onInput={(e) => { setusername(e.target.value) }}
