@@ -5,7 +5,7 @@ const Post = ({user,post}) => {
      <div className="post">
                     <div className="user">
                        <div className="img-wrapper">
-                         <img src={user.ProfileImage} alt="" />
+                         <img src={user.profileImage} alt="" />
                        </div>
                         <p>{user.username}</p>
                     </div>
