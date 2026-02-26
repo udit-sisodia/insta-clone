@@ -44,7 +44,7 @@ const Register = () => {
                         type="password"
                         name='password'
                         placeholder='Enter password' />
-                    <button type='submit'>Register</button>
+                    <button className="button primary-btn" type='submit'>Register</button>
                 </form>
 
                 <p>Already have an account? <Link className='toggleAuthForm' to="/login">Login</Link></p>

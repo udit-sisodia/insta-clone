@@ -19,17 +19,12 @@ main {
         @include flex-column(1rem); 
         min-width: 350px;
 
-        input,button {
+        input{
             border: none;
             outline: none;
             padding-inline: 1.5rem;
             padding-block: 1rem;
             border-radius: 1rem;
-        }
-        button{
-            background-color: rgb(191, 7, 7);
-            color: whitesmoke;
-            cursor: pointer;
         }
 
     }
