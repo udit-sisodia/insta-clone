@@ -11,6 +11,7 @@ export function useAuth(){
         setloading(true)
         try{
             const reponse=await login(username,password)
+            // console.log(reponse.user)
             setuser(reponse.user)
         }catch(error){
             setuser(null)

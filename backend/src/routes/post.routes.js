@@ -32,5 +32,12 @@ postRouter.get("/details/:postId",identifyUser,postController.getPostDetailsCont
 
 postRouter.post("/like/:postId",identifyUser,postController.likePostController)
 
+/* 
+@routes get /api/posts/feed [Protected]
+@desc this route is for getting the feed of the user. the feed will contain the posts of the users that the user follows.
+*/
+
+postRouter.get("/feed",identifyUser,postController.getFeedController)
+
 
 module.exports = postRouter
