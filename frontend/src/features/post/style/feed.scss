@@ -20,6 +20,8 @@
                 gap: 0.5rem;
                 margin-bottom: 2rem;
 
+
+
                 .user {
                     display: flex;
                     align-items: center;
@@ -50,6 +52,11 @@
                     .left {
                         display: flex;
                         gap: 0.5rem;
+
+                        .like {
+                            color: red
+                        }
+
                         svg {
                             width: 1.2rem;
                             aspect-ratio: 1/1;
@@ -63,7 +70,8 @@
                             background-color: transparent;
                         }
                     }
-                    .right{
+
+                    .right {
                         svg {
                             width: 1.2rem;
                             aspect-ratio: 1/1;
