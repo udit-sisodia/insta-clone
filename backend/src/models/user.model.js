@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
     bio: String,
     profileImage: {
         type: String,
-        default: "https://ik.imagekit.io/fpttn101t/social-network-default-profile-picture-avatar-icon-vector-57120632.webp"
+        default: "https://ik.imagekit.io/fpttn101t/social-network-default-profile-picture-avatar-icon-vector-57120632.webp?updatedAt=1772134770218"
     }
 })
 

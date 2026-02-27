@@ -3,4 +3,14 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+
+    .post-image-label{
+        width: 100%;
+        background-color: white;
+        color: rgb(100, 100, 100);
+        padding-inline: 1rem;
+        padding-block: 0.3rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+    }
 }

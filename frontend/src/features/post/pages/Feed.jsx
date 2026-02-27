@@ -6,7 +6,7 @@ import Post from '../components/Post'
 import Nav from '../../shared/components/Nav'
 
 const Feed = () => {
-    const {feed,handleGetFeed,loading} = usePost()
+    const {feed,handleGetFeed,loading,handleLikePost,handleUnLikePost} = usePost()
 
     useEffect(()=>{
         handleGetFeed()
@@ -14,13 +14,13 @@ const Feed = () => {
     if(loading || !feed){
         return (<main><h1>Feed is loading...</h1></main>)
     }
-    console.log(feed)
+    // console.log(feed)
   return (
     <main className='feed-page'>
         <Nav/>
         <div className="feed">
             <div className="posts">
-               {feed.map(post => <Post key={post.id} post={post} user={post.user}/>)}
+               {feed.reverse().map(post => {return <Post key={post.id} post={post} user={post.user} handleLikePost={handleLikePost} handleUnLikePost={handleUnLikePost}/>})}
             </div>
         </div>
     </main>

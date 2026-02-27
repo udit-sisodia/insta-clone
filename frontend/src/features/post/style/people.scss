@@ -1,0 +1,268 @@
+.people-page {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #0a0a0a;
+    padding-block: 2rem;
+    padding-inline: 1rem;
+
+    .people-container {
+        width: 100%;
+        max-width: 480px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        // ── Header ───────────────────────────────────────
+        .people-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+
+            h2 {
+                font-size: 1.75rem;
+                font-weight: 700;
+                color: #f0f0f0;
+                letter-spacing: -0.02em;
+            }
+
+            .subtitle {
+                font-size: 0.875rem;
+                color: #555555;
+            }
+        }
+
+        // ── Tabs ─────────────────────────────────────────
+        .tabs {
+            display: flex;
+            gap: 0.25rem;
+            background-color: #111111;
+            border: 1px solid #222222;
+            border-radius: 10px;
+            padding: 0.25rem;
+
+            .tab-btn {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.375rem;
+                padding-block: 0.6rem;
+                border: none;
+                border-radius: 7px;
+                background: transparent;
+                color: #555555;
+                font-size: 0.8125rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background 0.2s ease, color 0.2s ease;
+
+                .tab-count {
+                    font-size: 0.7rem;
+                    font-weight: 700;
+                    background-color: #2a2a2a;
+                    color: #888888;
+                    padding: 0.1rem 0.4rem;
+                    border-radius: 20px;
+                    transition: background 0.2s ease, color 0.2s ease;
+                }
+
+                &:hover:not(.active) {
+                    color: #aaaaaa;
+                    background: rgba(255, 255, 255, 0.04);
+                }
+
+                &.active {
+                    background: linear-gradient(135deg, #dc2743, #cc2366, #bc1888);
+                    color: #ffffff;
+
+                    .tab-count {
+                        background-color: rgba(255, 255, 255, 0.2);
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+
+        // ── User list ─────────────────────────────────────
+        .user-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            // ── Empty state ──────────────────────────────
+            .empty-state {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+                padding: 4rem 1rem;
+
+                svg {
+                    width: 3rem;
+                    height: 3rem;
+                    color: #2a2a2a;
+                }
+
+                p {
+                    font-size: 0.9375rem;
+                    font-weight: 500;
+                    color: #3a3a3a;
+                }
+            }
+
+            // ── User card ────────────────────────────────
+            .user-card {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.75rem;
+                padding: 0.875rem 1rem;
+                background-color: #111111;
+                border: 1px solid #1e1e1e;
+                border-radius: 12px;
+                transition: border-color 0.2s ease;
+
+                &:hover {
+                    border-color: #2a2a2a;
+                }
+
+                // ── Clickable user info ──────────────────
+                .user-info {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    cursor: pointer;
+                    flex: 1;
+                    min-width: 0;
+
+                    &:hover .username {
+                        color: #ffffff;
+                    }
+
+                    .avatar-wrapper {
+                        flex-shrink: 0;
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        border-radius: 50%;
+                        padding: 2px;
+                        background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 50%;
+                            object-fit: cover;
+                            border: 2px solid #111111;
+                            display: block;
+                        }
+                    }
+
+                    .user-meta {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.125rem;
+                        min-width: 0;
+
+                        .username {
+                            font-size: 0.9375rem;
+                            font-weight: 600;
+                            color: #e0e0e0;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            transition: color 0.15s ease;
+                        }
+
+                        .email {
+                            font-size: 0.75rem;
+                            color: #444444;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+
+                // ── Follow button ────────────────────────
+                .follow-btn {
+                    flex-shrink: 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.3rem;
+                    padding-block: 0.45rem;
+                    padding-inline: 0.875rem;
+                    border: none;
+                    border-radius: 8px;
+                    background: linear-gradient(135deg, #dc2743, #cc2366, #bc1888);
+                    color: #ffffff;
+                    font-size: 0.8125rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: opacity 0.2s ease, transform 0.1s ease;
+
+                    svg {
+                        width: 0.9rem;
+                        height: 0.9rem;
+                    }
+
+                    &:hover {
+                        opacity: 0.85;
+                    }
+
+                    &:active {
+                        transform: scale(0.95);
+                    }
+                }
+
+                // ── Unfollow button ──────────────────────
+                .unfollow-btn {
+                    flex-shrink: 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.3rem;
+                    padding-block: 0.45rem;
+                    padding-inline: 0.875rem;
+                    border: 1px solid #2a2a2a;
+                    border-radius: 8px;
+                    background-color: #1a1a1a;
+                    color: #666666;
+                    font-size: 0.8125rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.2s ease, transform 0.1s ease;
+
+                    svg {
+                        width: 0.9rem;
+                        height: 0.9rem;
+                    }
+
+                    &:hover {
+                        background-color: #1e0d10;
+                        border-color: #dc2743;
+                        color: #dc2743;
+                    }
+
+                    &:active {
+                        transform: scale(0.95);
+                    }
+                }
+
+                // ── Mutual badge ─────────────────────────
+                .mutual-badge {
+                    flex-shrink: 0;
+                    font-size: 0.7rem;
+                    font-weight: 700;
+                    letter-spacing: 0.04em;
+                    text-transform: uppercase;
+                    color: #bc1888;
+                    background-color: rgba(188, 24, 136, 0.1);
+                    border: 1px solid rgba(188, 24, 136, 0.2);
+                    padding: 0.3rem 0.6rem;
+                    border-radius: 20px;
+                }
+            }
+        }
+    }
+}
